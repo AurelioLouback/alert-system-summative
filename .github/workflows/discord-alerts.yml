@@ -1,0 +1,18 @@
+name: Discord Alert System  # Nome do workflow
+
+on:  # Quando o workflow será acionado?
+  push:  # Quando houver push (envio de código)
+    branches: [ main ]  # Apenas na branch main
+  pull_request:  # Quando houver uma pull request
+    branches: [ main ]
+
+jobs:  # Tarefas a serem executadas
+  alert:  # Nome da tarefa
+    runs-on: ubuntu-latest  # Sistema operacional usado
+    steps:  # Passos da tarefa
+    - name: Send Discord Alert  # Nome do passo
+      uses: Ilshidur/action-discord@master  # Ação pronta do GitHub
+      env:  # Variáveis de ambiente
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}  # Segredo configurado no GitHub
+      with:  # Parâmetros
+        args: "🚨 Novo push detectado! Revisão necessária em: ${{ github.event.repository.url }}"  # Mensagem personalizada

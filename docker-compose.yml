@@ -1,0 +1,7 @@
+version: '3.8'  # Versão do Docker Compose
+
+services:
+  app:  # Nome do serviço
+    build: .  # Constrói a imagem usando o Dockerfile
+    environment:  # Variáveis de ambiente
+      - PYTHONUNBUFFERED=1  # Mostra logs do Python imediatamente
