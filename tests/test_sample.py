@@ -13,3 +13,5 @@ class TestCalculadora(unittest.TestCase):
 # Executa os testes se o arquivo for rodado diretamente
 if __name__ == '__main__':
     unittest.main()
+def test_soma_decimais(self):
+    self.assertEqual(soma(1.5, 2.5), 4.0)
